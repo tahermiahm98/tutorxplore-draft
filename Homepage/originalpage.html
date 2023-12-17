@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>TutorExplore</title>
+    <style>
+      body {
+        height: 6000px;
+        margin: 0;
+        font-family: Roboto, Arial;
+        background-color: rgb(252, 249, 206);
+        margin-left: 45px;
+        margin-right: 45px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 114px;
+        z-index: 100;
+      }
+
+      .left-section {
+        display: flex;
+        align-items: center;
+        background-color: rgb(251, 130, 25);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        padding-top: 35px;
+        padding-bottom: 35px;
+        padding-left: 25px;
+        padding-right: 95px;
+        transition: background-color 0.25s;
+      }
+
+      .left-section:hover {
+        background-color: rgb(255, 111, 0);
+      }
+
+      .left-section:active {
+        background-color: rgb(255, 42, 14);
+      }
+
+      .book-image-container {
+        margin-right: 10px;
+      }
+
+      .book-image {
+        height: 40px;
+      }
+
+      .left-section-text {
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .right-section {
+        display: flex;
+        justify-content: space-between;
+        width: 700px;
+        padding-right: 50px;
+        font-size: 15px;
+      }
+
+      .header-button {
+        background-color: rgb(248, 41, 10);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        border: 0;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: opacity 0.25s;
+      }
+
+      .header-button:hover {
+        opacity: 0.8;
+      }
+
+      .header-button:active {
+        opacity: 0.5;
+      }
+
+      .first-panel-container {
+        display: flex;
+        flex: 1;
+        position: relative;
+        margin-top: 200px;
+        height: 800px;
+      }
+
+      .stationary-background-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .welcome-container {
+        position: absolute;
+        top: 275px;
+        left: 330px;
+        right: 300px;
+        min-width: 367px;
+      }
+
+      .welcome-text {
+        font-size: 60px;
+        font-weight: 500;
+        color: white;
+        background-color: rgb(248, 41, 10);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 18px;
+        padding-right: 18px;
+        border-radius: 18px;
+        margin-bottom: 7px;
+      }
+
+      .welcome-sub-text {
+        font-size: 25px;
+        font-weight: 300;
+        margin-left: 15px;
+      }
+
+      .second-panel-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      .introduction-background-container {
+        position: relative;
+        height: 600px;
+      }
+
+      .introduction-background-image {
+        height: 100%;
+      }
+
+      .introduction-background-container .sub-heading {
+        position: absolute;
+        top: 110px;
+        left: 110px;
+        font-weight: 300;
+        font-size: 30px;
+      }
+
+      .introduction-background-container .main-text {
+        position: absolute;
+        top: 160px;
+        left: 110px;
+        right: 110px;
+        font-weight: 100;
+        font-size: 24px;
+        line-height: 34px;
+      }
+
+      .child-studying-container {
+        height: 600px;
+        width: 735px;
+      }
+
+      .child-studying-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .third-panel-container {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(247, 242, 180);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        margin-top: 20px;
+        padding-top: 125px;
+        padding-bottom: 125px;
+      }
+
+      .services-section {
+        width: 900px;
+      }
+
+      .what-we-offer-subheading {
+        font-size: 50px;
+        font-weight: 400;
+        margin-bottom: 32px;
+      }
+
+      .services-section-text {
+        font-weight: 300;
+        line-height: 30px;
+        margin-bottom: 20px;
+      }
+
+      .fourth-panel-container {
+        margin-top: 20px;
+        background-color: rgb(239, 239, 239);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 50px;
+        height: 380px;
+        padding-top: 65px;
+        padding-left: 65px;
+        padding-right: 65px;
+        padding-bottom: 65px;
+      }
+
+      .online-videos-container,
+      .learning-materials-container,
+      .exam-tips-container,
+      .one-to-one-feedback-container {
+        min-width: 85px;
+      }
+
+      .online-videos-image,
+      .learning-materials-image,
+      .exam-tips-image,
+      .one-to-one-feedback-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 14px;
+      }
+
+      .online-videos-text,
+      .learning-materials-text,
+      .exam-tips-text,
+      .one-to-one-feedback-text {
+        min-width: 85px;
+        background-color: rgb(252, 249, 206);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        border-radius: 14px;
+        margin-top: 20px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 18px;
+        padding-right: 18px;
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .fifth-panel-container {
+        margin-top: 100px;
+      }
+
+      .fifth-panel-container .text {
+        margin-left: 50px;
+        margin-bottom: 80px;
+      }
+
+      .fifth-panel-container .sub-heading {
+        font-size: 40px;
+        font-weight: 500;
+        color: rgb(8, 86, 202);
+        padding-bottom: 12px;
+      }
+
+      .fifth-panel-container .main-text {
+        font-weight: 300;
+      }
+
+      .fifth-panel-container .videos-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .fifth-panel-container .video-preview {
+        width: 320px;
+      }
+
+      .fifth-panel-container .thumbnail-container {
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .fifth-panel-container .thumbnail-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .fifth-panel-container .video-time {
+        position: absolute;
+        bottom: 16px;
+        right: 12px;
+        font-size: 13px;
+        font-weight: 500;
+        background-color: black;
+        color: white;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 2px;
+      }
+
+      .fifth-panel-container .video-info {
+        padding-left: 18px;
+        padding-right: 35px;
+      }
+
+      .fifth-panel-container .video-title {
+        padding-bottom: 10px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .fifth-panel-container .video-description {
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 20px;
+      }
+
+      .sixth-panel-container {
+        background-color: rgb(52, 113, 226);
+        height: 1200px;
+        margin-top: 90px;
+        margin-left: -45px;
+        margin-right: -45px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a
+        class="left-section-text"
+        href="/TutorExplore/Homepage/tutorexplore.html"
+      >
+        <div class="left-section">
+          <div class="book-image-container">
+            <img
+              class="book-image"
+              src="/TutorExplore/Images/Books.png"
+              alt=""
+            />
+          </div>
+          <div class="left-section-text">Mr Miah's Classroom</div>
+        </div></a
+      >
+      <div class="right-section">
+        <div>
+          <a href="/TutorExplore/Online videos/onlinevideos.html"
+            ><button class="header-button">Online Videos</button></a
+          >
+        </div>
+        <div>
+          <a href="/TutorExplore/Learning Materials/learningmaterials.html"
+            ><button class="header-button">Learning Materials</button></a
+          >
+        </div>
+        <div>
+          <a href="/TutorExplore/Exam Tips/examtips.html"
+            ><button class="header-button">Exam Tips</button></a
+          >
+        </div>
+        <div>
+          <a href="/TutorExplore/One to one Feedback/one-to-one-feedback.html"
+            ><button class="header-button">One-to-one Feedback</button></a
+          >
+        </div>
+        <div>
+          <a href="/TutorExplore/About Us/about-us.html"
+            ><button class="header-button">About Us</button></a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div class="first-panel-container">
+      <img
+        class="stationary-background-image"
+        src="/TutorExplore/Images/stationary-background.jpg"
+        alt=""
+      />
+      <div class="welcome-container">
+        <div class="welcome-text">Welcome To TutorExplore</div>
+        <div class="welcome-sub-text">Online Tutoring For Science Students</div>
+      </div>
+    </div>
+
+    <div class="second-panel-container">
+      <div class="introduction-background-container">
+        <img
+          class="introduction-background-image"
+          src="/TutorExplore/Images/school-items-white-background-flat-lay.jpg"
+          alt=""
+        />
+        <div class="sub-heading">Welcome To TutorExplore</div>
+        <div class="main-text">
+          TutorExplore is an online tutoring website designed to help students
+          study science. We understand that learning can be challenging, so
+          we've created a platform to help you keep up with your studies and
+          reach your academic goals.
+        </div>
+      </div>
+      <div class="child-studying-container">
+        <img
+          class="child-studying-image"
+          src="/TutorExplore/Images/child-studying.jpeg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="third-panel-container">
+      <div class="services-section">
+        <div class="what-we-offer-subheading">What We Offer</div>
+        <div class="services-section-text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
+          repudiandae laborum eligendi beatae voluptatibus maxime, itaque
+          quisquam distinctio alias libero totam sequi enim iure error
+          necessitatibus fugit obcaecati eveniet recusandae velit vero
+          asperiores. Nihil praesentium maiores atque pariatur! Recusandae vero
+          neque tempore, vitae dignissimos nihil? Obcaecati odio commodi fugit
+          atque.
+        </div>
+        <div class="services-section-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore ut
+          odio ipsum iste culpa dolores. Alias animi maxime labore commodi
+          itaque, exercitationem non accusamus ab eum possimus fugiat quia
+          repudiandae!
+        </div>
+      </div>
+    </div>
+    <div class="fourth-panel-container">
+      <div class="online-videos-container">
+        <div>
+          <img
+            class="online-videos-image"
+            src="/TutorExplore/Images/online-videos.jpg"
+            alt=""
+          />
+        </div>
+        <div class="online-videos-text">
+          Online Videos to explain difficult processes
+        </div>
+      </div>
+      <div class="learning-materials-container">
+        <div>
+          <img
+            class="learning-materials-image"
+            src="/TutorExplore/Images/learning-materials.jpg"
+            alt=""
+          />
+        </div>
+        <div class="learning-materials-text">
+          High Quality Learning Materials
+        </div>
+      </div>
+      <div class="exam-tips-container">
+        <div>
+          <img
+            class="exam-tips-image"
+            src="/TutorExplore/Images/exam-tips.jpg"
+            alt=""
+          />
+        </div>
+        <div class="exam-tips-text">Exam Tips based on years of experience</div>
+      </div>
+      <div class="one-to-one-feedback-container">
+        <div>
+          <img
+            class="one-to-one-feedback-image"
+            src="/TutorExplore/Images/one-to-one-feedback.jpeg"
+            alt=""
+          />
+        </div>
+        <div class="one-to-one-feedback-text">
+          One-to-one Feedback just for you
+        </div>
+      </div>
+    </div>
+    <div class="fifth-panel-container">
+      <div class="text">
+        <div class="sub-heading">Science Resources</div>
+        <div class="main-text">Tools to help you learn and study science.</div>
+      </div>
+      <div class="videos-container">
+        <div class="video-preview">
+          <div class="thumbnail-container">
+            <a
+              href="https://www.youtube.com/watch?v=LUPHohqlPTU"
+              target="_blank"
+            >
+              <img
+                class="thumbnail-image"
+                src="/TutorExplore/Images/Thumbnails/diffusion.jpeg"
+                alt=""
+              />
+            </a>
+            <div class="video-time">4:23</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Diffusion</div>
+            <div class="video-description">
+              In this video, we cover what diffusion is, some examples of
+              diffusion working in our cells and blood vessels, and factors that
+              affect the rate of diffusion.
+            </div>
+          </div>
+        </div>
+        <div class="video-preview">
+          <div class="thumbnail-container">
+            <a
+              href="https://www.youtube.com/watch?v=vCJVXYmXkzM"
+              target="_blank"
+            >
+              <img
+                class="thumbnail-image"
+                src="/TutorExplore/Images/Thumbnails/osmosis.jpeg"
+                alt=""
+              />
+            </a>
+            <div class="video-time">4:24</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Osmosis</div>
+            <div class="video-description">
+              In this video, we cover what osmosis is, how osmosis works and how
+              to understand water concentration
+            </div>
+          </div>
+        </div>
+        <div class="video-preview">
+          <div class="thumbnail-container">
+            <a
+              href="https://www.youtube.com/watch?v=AxXN-j6UzOY"
+              target="_blank"
+              ><img
+                class="thumbnail-image"
+                src="/TutorExplore/Images/Thumbnails/active-transport.jpeg"
+                alt=""
+              />
+            </a>
+            <div class="video-time">4:54</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Active Transport</div>
+            <div class="video-description">
+              In this video, we cover what active transport is, how it's
+              different to diffusion and how root hair cells are adapted to
+              absorb mineral ions.
+            </div>
+          </div>
+        </div>
+        <div class="video-preview">
+          <div class="thumbnail-container">
+            <a
+              href="https://www.youtube.com/watch?v=qHkUOlC8Nbo"
+              target="_blank"
+              ><img
+                class="thumbnail-image"
+                src="/TutorExplore/Images/Thumbnails/cells.jpeg"
+                alt=""
+              />
+            </a>
+            <div class="video-time">6:49</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Cells</div>
+            <div class="video-description">
+              In this video, we cover the different types of cells, the
+              differences and similarities between the structure of plant,
+              animal and bacterial cells, and the organelles you need to know.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sixth-panel-container"></div>
+  </body>
+</html>

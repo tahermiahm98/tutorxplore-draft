@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>GCSE Physics</title>
+    <style>
+      body {
+        height: 6000px;
+        margin: 0;
+        font-family: Roboto, Arial;
+        background-color: rgb(252, 249, 206);
+        margin-left: 45px;
+        margin-right: 45px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 114px;
+        z-index: 100;
+        transition: 0.4s;
+      }
+
+      .scroll-down header {
+        transform: translate3d(0, -100%, 0);
+      }
+
+      .left-section {
+        display: flex;
+        align-items: center;
+        background-color: rgb(251, 130, 25);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        padding-top: 35px;
+        padding-bottom: 35px;
+        padding-left: 25px;
+        padding-right: 95px;
+        transition: background-color 0.25s;
+      }
+
+      .left-section:hover {
+        background-color: rgb(255, 111, 0);
+      }
+
+      .left-section:active {
+        background-color: rgb(255, 42, 14);
+      }
+
+      .book-image-container {
+        margin-right: 10px;
+      }
+
+      .book-image {
+        height: 40px;
+      }
+
+      .left-section-text {
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .right-section {
+        display: flex;
+        justify-content: space-between;
+        width: 700px;
+        padding-right: 50px;
+        font-size: 15px;
+      }
+
+      .js-button,
+      .js-button2 {
+        padding-bottom: 6px;
+      }
+
+      .hidden-div,
+      .hidden-div2 {
+        position: fixed;
+        background-color: white;
+        height: 120px;
+        width: 300px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+        margin-top: 6px;
+        padding-top: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+        line-height: 22px;
+      }
+
+      .topic-units {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .topic-text {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+      }
+
+      .unit-text-hidden-div {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+        font-weight: 300;
+        border-radius: 5px;
+      }
+
+      .unit-text-hidden-div:hover {
+        background-color: rgb(215, 246, 255);
+      }
+
+      .header-button {
+        background-color: rgb(248, 41, 10);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        border: 0;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: opacity 0.25s;
+      }
+
+      .header-button:hover {
+        opacity: 0.8;
+      }
+
+      .header-button:active {
+        opacity: 0.5;
+      }
+
+      .first-panel-container {
+        margin-top: 200px;
+      }
+
+      .first-panel-container .text {
+        margin-left: 50px;
+        margin-bottom: 80px;
+      }
+
+      .first-panel-container .sub-heading {
+        font-size: 40px;
+        font-weight: 500;
+        color: rgb(8, 86, 202);
+        padding-bottom: 12px;
+      }
+
+      .first-panel-container .main-text {
+        font-weight: 300;
+      }
+
+      .grid-preview {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 110px;
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+
+      .individual-container {
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+        background-color: rgb(239, 239, 239);
+        border: solid;
+        border-width: 1.5px;
+        border-color: rgb(191, 189, 189);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: opacity 0.15s;
+      }
+
+      .individual-container:hover {
+        opacity: 0.8;
+      }
+
+      .individual-container:active {
+        opacity: 0.5;
+      }
+
+      .folder-container {
+        min-width: 50px;
+        max-width: 125px;
+      }
+
+      .folder-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .unit-text {
+        font-size: 30px;
+        font-weight: 500;
+        color: rgb(90, 90, 90);
+        padding-left: 25px;
+        padding-right: 10px;
+      }
+
+      .topic-name {
+        font-size: 22px;
+        font-weight: 500;
+        color: rgb(90, 90, 90);
+        padding-left: 25px;
+        padding-right: 10px;
+      }
+
+      .unit-link {
+        text-decoration: none;
+      }
+
+      .unit-information {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        font-size: 16px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a
+        class="left-section-text"
+        href="/TutorExplore/Homepage/tutorexplore.html"
+      >
+        <div class="left-section">
+          <div class="book-image-container">
+            <img
+              class="book-image"
+              src="/TutorExplore/Images/Books.png"
+              alt=""
+            />
+          </div>
+          <div class="left-section-text">Mr Miah's Classroom</div>
+        </div></a
+      >
+      <div class="right-section">
+        <div class="js-button">
+          <a href="/TutorExplore/Online videos/onlinevideos.html"
+            ><button class="header-button">Online Videos</button></a
+          >
+          <div class="hidden-div">
+            <div class="topic-text">GCSE Topics</div>
+            <div class="topic-units">
+              <div>
+                <div class="topic-text">Biology</div>
+                <div>
+                  <a
+                    class="unit-text-hidden-div"
+                    href="/TutorExplore/Online videos/GCSE/unit-1-biology/unit-1-biology.html"
+                    >Unit 1</a
+                  >
+                </div>
+                <div><a class="unit-text-hidden-div" href="">Unit 2</a></div>
+                <div><a class="unit-text-hidden-div" href="">Unit 3</a></div>
+              </div>
+              <div>
+                <div class="topic-text">Chemistry</div>
+                <div><a class="unit-text-hidden-div" href="">Unit 1</a></div>
+                <div><a class="unit-text-hidden-div" href="">Unit 2</a></div>
+                <div><a class="unit-text-hidden-div" href="">Unit 3</a></div>
+              </div>
+              <div>
+                <div class="topic-text">Physics</div>
+                <div><a class="unit-text-hidden-div" href="">Unit 1</a></div>
+                <div><a class="unit-text-hidden-div" href="">Unit 2</a></div>
+                <div><a class="unit-text-hidden-div" href="">Unit 3</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="js-button2">
+          <a href="/TutorExplore/Learning Materials/learningmaterials.html"
+            ><button class="header-button">Learning Materials</button></a
+          >
+          <div class="hidden-div2">
+            <div class="topic-text">GCSE Topics</div>
+            <div class="topic-units">
+              <div>
+                <div>
+                  <a
+                    class="topic-text"
+                    href="/TutorExplore/Learning Materials/GCSE/gcsebiology.html"
+                    >Biology</a
+                  >
+                </div>
+                <div>
+                  <a
+                    class="unit-text-hidden-div"
+                    href="/TutorExplore/Learning Materials/GCSE/unit-1-biology/unit-1-biology.html"
+                    >Unit 1</a
+                  >
+                </div>
+                <div>
+                  <a
+                    class="unit-text-hidden-div"
+                    href="/TutorExplore/Learning Materials/GCSE/unit-2-biology/unit-2-biology.html"
+                    >Unit 2</a
+                  >
+                </div>
+                <div><a class="unit-text-hidden-div" href="">Unit 3</a></div>
+              </div>
+              <div>
+                <div>
+                  <a
+                    class="topic-text"
+                    href="/TutorExplore/Learning Materials/GCSE/gcsechemistry.html"
+                    >Chemistry</a
+                  >
+                </div>
+                <div>
+                  <a
+                    class="unit-text-hidden-div"
+                    href="/TutorExplore/Learning Materials/GCSE/unit-1-chemistry/unit-1-chemistry.html"
+                    >Unit 1</a
+                  >
+                </div>
+                <div>
+                  <a
+                    class="unit-text-hidden-div"
+                    href="/TutorExplore/Learning Materials/GCSE/unit-2-chemistry/unit-2-chemistry.html"
+                    >Unit 2</a
+                  >
+                </div>
+                <div><a class="unit-text-hidden-div" href="">Unit 3</a></div>
+              </div>
+              <div>
+                <div>
+                  <a
+                    class="topic-text"
+                    href="/TutorExplore/Learning Materials/GCSE/gcsephysics.html"
+                    >Physics</a
+                  >
+                </div>
+                <div>
+                  <a
+                    class="unit-text-hidden-div"
+                    href="/TutorExplore/Learning Materials/GCSE/unit-1-physics/unit-1-physics.html"
+                    >Unit 1</a
+                  >
+                </div>
+                <div>
+                  <a
+                    class="unit-text-hidden-div"
+                    href="/TutorExplore/Learning Materials/GCSE/unit-2-physics/unit-2-physics.html"
+                    >Unit 2</a
+                  >
+                </div>
+                <div><a class="unit-text-hidden-div" href="">Unit 3</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a href="/TutorExplore/Exam Tips/examtips.html"
+            ><button class="header-button">Exam Tips</button></a
+          >
+        </div>
+        <div>
+          <a href="/TutorExplore/One to one Feedback/one-to-one-feedback.html"
+            ><button class="header-button">One-to-one Feedback</button></a
+          >
+        </div>
+        <div>
+          <a href="/TutorExplore/About Us/about-us.html"
+            ><button class="header-button">About Us</button></a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div class="first-panel-container">
+      <div class="text">
+        <div class="sub-heading">GCSE Physics</div>
+        <div class="main-text">
+          Material to help you learn and study science.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-preview">
+      <div>
+        <a class="unit-link" href="unit-1-physics/unit-1-physics.html">
+          <div class="individual-container">
+            <div class="folder-container">
+              <img
+                class="folder-image"
+                src="/TutorExplore/Images/folder.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="unit-text">Unit 1</div>
+            </div>
+          </div></a
+        >
+        <div class="unit-information">Electricity, Energy and Waves</div>
+      </div>
+
+      <div>
+        <a class="unit-link" href="unit-2-physics/unit-2-physics.html">
+          <div class="individual-container">
+            <div class="folder-container">
+              <img
+                class="folder-image"
+                src="/TutorExplore/Images/folder.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <div class="unit-text">Unit 2</div>
+            </div>
+          </div></a
+        >
+        <div class="unit-information">Forces, Space and Radioactivity</div>
+      </div>
+
+      <div>
+        <div class="individual-container">
+          <div class="folder-container">
+            <img
+              class="folder-image"
+              src="/TutorExplore/Images/folder.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <div class="unit-text">Unit 3</div>
+          </div>
+        </div>
+        <div class="unit-information">Practical Assessment</div>
+      </div>
+    </div>
+
+    <!--Hide Header on scroll JS-->
+    <script src="/TutorExplore/Homepage/Files/header-scroll.js"></script>
+
+    <!--Drop down menu JS-->
+    <script src="/TutorExplore/Homepage/Files/drop-down-menu.js"></script>
+  </body>
+</html>
